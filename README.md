@@ -184,7 +184,7 @@ Route: `/post/:id`
 ## 📞 Contact
 
 **Project Name:** EchoVerse
-**Developed by:** \Kawser Ahmed Nihad
+**Developed by:** Kawser Ahmed Nihad
 **Email:** [kawserahmednihad@gmail.com](mailto:kawserahmednihad@gmail.com)
 **City:** Mymensingh, Bangladesh
 
