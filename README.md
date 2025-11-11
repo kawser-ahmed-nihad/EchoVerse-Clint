@@ -1,12 +1,64 @@
-# React + Vite
+# EchoVerse Forum
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![React](https://img.shields.io/badge/React-17.0.2-blue)](https://reactjs.org/)
+[![Node.js](https://img.shields.io/badge/Node.js-18-green)](https://nodejs.org/)
+[![MongoDB](https://img.shields.io/badge/MongoDB-6.0.4-brightgreen)](https://www.mongodb.com/)
+[![Express](https://img.shields.io/badge/Express-4.18.2-lightgrey)](https://expressjs.com/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+EchoVerse is a modern online forum built using the **MERN Stack** (MongoDB, Express.js, React.js, Node.js). This platform allows users to create posts, comment, and interact in real-time, offering a seamless and engaging community experience.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Features
+
+| Feature | Description |
+|---------|-------------|
+| User Authentication | Sign up, login, and secure user sessions |
+| Posts & Comments | Create, edit, delete posts and comments |
+| Voting System | Upvote & downvote posts |
+| Admin Dashboard | Manage users, posts, tags, and announcements |
+| Responsive Design | Works perfectly on desktop, tablet & mobile |
+| Real-time Updates | Instant updates for comments and notifications |
+| Tags & Categories | Organize posts with tags for easy search |
+| Search Functionality | Filter posts by tags, title, or description |
+ 
+
+---
+
+## Tech Stack
+
+- **Frontend:** React.js, TailwindCSS, React Query  
+- **Backend:** Node.js, Express.js, REST API  
+- **Database:** MongoDB  
+- **Authentication:** JWT, Secure Password Hashing  
+- **Hosting/Deployment:** Vercel / Render (optional)  
+
+---
+
+## Installation
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/kawser-ahmed-nihad/EchoVerse-Clint.git
+
+cd echoverse-client
+npm install
+
+cd echoverse-server
+npm install
+
+PORT=5000
+MONGODB_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret
+
+# Server
+npm run dev
+# Client
+npm start
+
+---
+
+Developed ❤️ by MD Kawser Ahmed Nihad
