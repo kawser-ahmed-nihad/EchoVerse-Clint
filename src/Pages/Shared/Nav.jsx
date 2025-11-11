@@ -6,6 +6,7 @@ import Swal from "sweetalert2";
 import { useSearch } from "../../context/SearchContext/SearchContext";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
+import { FiBell, FiMenu, FiX } from 'react-icons/fi';
 
 const Nav = () => {
   const { user, logOut, loading } = useAuth();
@@ -14,6 +15,7 @@ const Nav = () => {
   const dropdownRef = useRef();
   const { setSearchTerm } = useSearch();
   const axiosSecure = useAxiosSecure();
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
     const closeDropdown = (e) => {
@@ -91,7 +93,7 @@ const Nav = () => {
           </Link>
 
           {/* Search box */}
-          <div className="bg-[#f9f9f9] flex items-center rounded-md relative ml-2 sm:ml-4 w-[240px] sm:w-[220px] md:w-[280px] lg:w-[340px]">
+          <div className="bg-[#f9f9f9] flex items-center rounded-md relative ml-2 sm:ml-4 w-[200px] sm:w-[220px] md:w-[280px] lg:w-[340px]">
             <input
               type="text"
               value={searchText}
@@ -131,8 +133,8 @@ const Nav = () => {
           ))}
         </ul>
 
-        {/* Right side */}
-        <div className="flex items-center gap-3">
+        {/* Right side + desktop */}
+        <div className=" hidden lg:flex items-center gap-3">
           {/* Notifications */}
           <div className="relative">
             <div className="bg-[#fafafa] p-2 rounded-full">
@@ -200,12 +202,77 @@ const Nav = () => {
           ) : (
             <NavLink
               to="/auth/login"
-              className="hidden sm:flex bg-[#ff6934] text-white px-4 py-2 rounded hover:bg-[#e35b2c] transition text-sm sm:text-base"
+              className=" hidden lg:flex w-full sm:w-auto bg-[#ff6934] text-white px-3 py-2 sm:px-4 sm:py-2 rounded 
+             hover:bg-[#e35b2c] transition text-sm sm:text-base text-center"
             >
               Join Us
             </NavLink>
+
           )}
         </div>
+
+        <div className=" lg:hidden relative">
+          <div className="bg-[#fafafa] p-2 rounded-full">
+            <IoNotifications size={22} className="text-black" />
+          </div>
+          {announcements.length > 0 && (
+            <span className="bg-[#ff6934] text-white text-xs w-4 h-4 rounded-full absolute -top-1 right-0 flex items-center justify-center">
+              {announcements.length}
+            </span>
+          )}
+        </div>
+
+
+        {/* Mobile Menu Button */}
+        <button onClick={() => setMobileOpen(true)} className="md:hidden">
+          <FiMenu className="w-6 h-6 text-[#cc5429]" />
+        </button>
+        <div>
+          {mobileOpen && (
+            <div
+              className="fixed inset-0 bg-black/30 backdrop-blur-sm z-40"
+              onClick={() => setMobileOpen(false)}
+            />
+          )}
+        </div>
+
+        {/* Mobile Menu */}
+        <div className={`fixed top-0 right-0 w-72 h-full bg-[#ffffff] z-50 transform transition-transform duration-300 ${mobileOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+          <div className="flex justify-between items-center px-4 py-3  border-b-gray-400">
+            <h2 className="text-lg text-[#cc5429] font-semibold">EchoVerse</h2>
+            <FiX className="w-6 h-6 cursor-pointer" onClick={() => setMobileOpen(false)} />
+          </div>
+
+          <ul className="flex flex-col gap-4 px-6 py-6 text-sm font-medium">
+            {user && (
+              <div className="flex items-center gap-2">
+                <img src={user.photoURL} alt="profile" className="w-10 h-10 rounded-full  object-cover" />
+                <span>{user.displayName}</span>
+              </div>
+            )}
+
+            <li><NavLink to="/" onClick={() => setMobileOpen(false)} >Home</NavLink></li>
+            <li><NavLink to="/membership" onClick={() => setMobileOpen(false)} >Membership</NavLink></li>
+            <li><NavLink to="/contact" onClick={() => setMobileOpen(false)} >Contact</NavLink></li>
+            <li><NavLink to="/about" onClick={() => setMobileOpen(false)} >About Us</NavLink></li>
+
+
+            {user && <NavLink to="/dashboard" onClick={() => setMobileOpen(false)} className="hover:text-yellow-300">Dashboard</NavLink>}
+
+            {!user ? (
+              <NavLink
+                to="/auth/login"
+                className="bg-[#e35b2c] text-white px-4 py-2 rounded text-center hover:bg-[#e35b2c] transition"
+                onClick={() => setMobileOpen(false)}
+              >
+                Join Us
+              </NavLink>
+            ) : (
+              <button onClick={handleLogOut} className="bg-[#cc5429] text-white px-4 py-2 hover:bg-[#e35b2c] rounded text-center transition">Logout</button>
+            )}
+          </ul>
+        </div>
+
       </div>
     </div>
   );

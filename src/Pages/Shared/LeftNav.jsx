@@ -92,10 +92,10 @@ const LeftNav = () => {
                 </div>
             )}
 
-            <div className="bg-white rounded-xl px-4 py-2 shadow-sm mb-5">
-                <h1 className="text-xl font-medium px-4 py-4">Popular Tags</h1>
+            <div className="bg-white rounded-xl p-4 shadow-sm mb-5">
+                <h1 className="text-xl font-medium mb-3">Popular Tags</h1>
 
-                <div className="flex gap-2 overflow-x-auto lg:grid lg:grid-cols-1 lg:overflow-visible scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100 py-1">
+                <div className="flex gap-2 overflow-x-auto lg:grid lg:grid-cols-1 lg:overflow-visible py-1 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
                     {tags.map((tag) => {
                         const tagName = tag.tagName.toLowerCase();
                         const Icon = tagIcons[tagName] || <span className="text-gray-400">#</span>;
@@ -106,9 +106,9 @@ const LeftNav = () => {
                                 onClick={() =>
                                     setSelectedTag((prev) => (prev === tag.tagName ? null : tag.tagName))
                                 }
-                                className={`flex items-center gap-2 flex-shrink-0 min-w-[140px] font-semibold text-left text-sm text-gray-700 rounded-md px-4 py-2 transition
-            ${selectedTag === tag.tagName ? "bg-[#f3f4f6]" : "hover:bg-[#f3f4f6]"}
-          `}
+                                className={`flex items-center gap-2 flex-shrink-0 min-w-[120px] sm:min-w-[140px] font-semibold text-left text-sm sm:text-base text-gray-700 rounded-md px-3 py-2 sm:px-4 sm:py-2 transition
+          ${selectedTag === tag.tagName ? "bg-[#f3f4f6]" : "hover:bg-[#f3f4f6]"}
+        `}
                             >
                                 {Icon} #{tag.tagName}
                             </button>
@@ -116,6 +116,7 @@ const LeftNav = () => {
                     })}
                 </div>
             </div>
+
 
 
         </>

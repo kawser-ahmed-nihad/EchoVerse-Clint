@@ -20,6 +20,7 @@ import PaymentPage from "./Pages/Membership/PaymentPage/PaymentPage";
 import Contact from "./Pages/Shared/Contact";
 import AboutUs from "./Pages/Shared/AboutUs";
 import AdminRoute from "./context/PrivateRoute/AdminRoute";
+import NotFoundPage from "./Pages/Shared/NotFoundPage/NotFoundPage";
 
 
 export const router = createBrowserRouter([
@@ -67,7 +68,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: 'comments/:postId',
-                element:  <CommentsDetails></CommentsDetails>
+                element: <CommentsDetails></CommentsDetails>
             },
             {
                 path: 'add-tags',
@@ -101,6 +102,10 @@ export const router = createBrowserRouter([
                 Component: Resgister
             }
         ]
+    },
+    {
+        path: '*',
+        element: <NotFoundPage />,
     }
 ]);
 
