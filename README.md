@@ -1,6 +1,5 @@
 # EchoVerse Forum
 
-
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![React](https://img.shields.io/badge/React-17.0.2-blue)](https://reactjs.org/)
 [![Node.js](https://img.shields.io/badge/Node.js-18-green)](https://nodejs.org/)
