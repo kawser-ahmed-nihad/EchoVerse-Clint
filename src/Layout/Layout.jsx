@@ -18,7 +18,7 @@ const Layout = () => {
 
 
     const isMinimalPage =
-        ['/add-post', '/profile', '/membership' ,'/contact' ,'/about'].includes(location.pathname) ||
+        ['/add-post', '/profile', '/membership', '/contact', '/about'].includes(location.pathname) ||
         location.pathname.startsWith('/posts/');
 
     return (
@@ -33,13 +33,15 @@ const Layout = () => {
             ) : (
 
                 <div className="grid lg:grid-cols-12 max-w-11/12 mx-auto pt-24">
+
                     <aside className="hidden lg:flex col-span-2">
-                        <div className="sticky top-24 mb-10">
+                        <div className="sticky top-24">
                             <LeftNav selectedTag={selectedTag} setSelectedTag={setSelectedTag} />
                         </div>
                     </aside>
 
-                    <div className="col-span-7 overflow-hidden pb-10">
+
+                    <div className="col-span-7  pb-10">
                         <Outlet context={{ searchTerm, selectedTag }} />
                     </div>
 

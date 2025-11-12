@@ -3,3 +3,22 @@
 @plugin "daisyui" {
     themes: light --default
 }
+
+/* Smooth horizontal scroll fix for mobile */
+.scrollbar-thin::-webkit-scrollbar {
+    height: 6px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: #d1d5db;
+    border-radius: 9999px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+    background: #f3f4f6;
+}
+
+/* iOS & Android touch scroll fix */
+.overflow-x-auto {
+    -webkit-overflow-scrolling: touch;
+}
